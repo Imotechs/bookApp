@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+  
+<div class="container">
+  <h2>Manage Books </h2>
+  
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+<div class="container">
+    <h3> Librarian Manage books </h3>
+    <p><button class="btn bg-success">Upload new book</button></p>
+    <p><button class="btn bg-warning">Delete book</button></p>
+</div>
+</div>
+<br><br>
+<div class="container" >
+    <div class="float-right" style="float:left;width :50%;"> 
+    <h3> Admin  </h3>
+    <h6>Other activities</h6>
+    <p><button class="btn bg-success">Upload profile photo</button></p>
+</div>
+    <div class="float-right" style="float:right;width:50%;">
+        <picture>
+            <source srcset="https://leverageedu.com/blog/wp-content/uploads/2019/09/Importance-of-Books.jpg" type="image/svg+xml">
+            <img src="https://leverageedu.com/blog/wp-content/uploads/2019/09/Importance-of-Books.jpg" class="img-fluid img-thumbnail" alt="...">
+          </picture>
+     </div>
+</div>
+{%endblock content%}
