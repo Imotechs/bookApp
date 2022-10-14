@@ -118,11 +118,11 @@ body {
             <button>login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
           </form>
-          <form class="register-form" action="{%url 'register'%}">
+          <form class="register-form" method="post" enctype="multipart/form-data">
             {{form.as_p}}
             {%csrf_token%}
-            <button type="submit">Register</button>
-            <p class="message">Already registered? <a href="#">Sign In</a></p>
+            <button type="submit">submit</button>
+            <p class="message">You can edit any book as a Librarian <a href="#"></a></p>
           </form>
         </div>
       </div>

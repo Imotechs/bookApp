@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+  
+<div class="container">
+  <h2>All Books yet to be returned </h2>
+  
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Pub. Date</th>
+        <th scope="col">Date Borrowed</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {%for book in books%}
+      <tr>
+        <th scope="row">{{book.user.username}}</th>
+        <td>{{book.book.title}}</td>
+        <td>{{book.book.author}}</td>
+        <td>{{book.book.ISBN}}</td>
+        <td>{{book.book.published_date}}</td>
+        <td>{{book.date_checked}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  <br><br>
+</div>
+
+{%endblock content%}

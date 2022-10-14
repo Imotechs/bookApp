@@ -7,11 +7,11 @@
     <div class="carousel-inner">
       
       <div class="carousel-item active" style="height: 400px;">
-        <img src="https://cdn.newsapi.com.au/image/v1/8791f511b22d3b0abb8b52c575bff083" class="d-block w-100" alt="...">
+        <img src="https://cdn.newsapi.com.au/image/v1/8791f511b22d3b0abb8b52c575bff083" class="d-block w-100" alt="..." height="400px" width="500px">
       </div> 
       
       <div class="carousel-item" style="height: 400px;">
-        <img src="https://leverageedu.com/blog/wp-content/uploads/2019/09/Importance-of-Books.jpg" class="d-block w-100" alt="...">
+        <img src="https://leverageedu.com/blog/wp-content/uploads/2019/09/Importance-of-Books.jpg" class="d-block w-100" alt="..." width="500px" height="400px">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -25,20 +25,38 @@
   </div>
 </div>
   <!-- carusel ends -->
+  <div class="books center" style="align-content: center;">
+    <h2 class="card-title" style="align-content: center;"> Available Books</h2>
 
-  <div class="card mb-3" style="max-width: 540px; margin: 30px;background-color: darkolivegreen;">
+  </div>
+  <div class="row">
+    {%for book in books%}
+<div class="col">
+  <div class="card mb-3" style="max-width: 540px; margin: 30px;background-color: rgb(195, 227, 141);">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
+        <img src="{{book.cover_image.url}}" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            <p><button class="btn bg-success">check out</button></p>
-        </div>
+          <h3 class="card-title"><i><small class="text-muted">Title :</small></i>{{book.title}}</h3>
+          <p class="card-text"><i><small class="text-muted" style="color: orange;">Surporting text :</small></i>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          
+          <h5 class="card-title"><i><small class="text-muted" style="color: orange;">author(s) :</small></i>{{book.author}}</h5>
+
+          <p class="card-text"><small class="text-white">Last updated  on {{book.date_added|date:'M,d'}}</small></p>  
+            {%if book  in request.user.profile.books.all%}
+            <p><a href="{%url 'checkout' book.id %}" class="btn bg-warning">return this book </a></p>
+              {%else%}
+              <p><a href="{%url 'checkout' book.id %}" class="btn bg-success"> Check 0ut</a></p>
+
+              {%endif%}
+            </div>
       </div>
     </div>
   </div>
+</div>
+  {%endfor%}
+</div>
+
   {%endblock content%}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amin mails</title>
+</head>
+<body>
+    {% autoescape off %}  
+    <h2 class="card-title">Hi {{ user.username }}</h2>
+
+    Please click on the link to confirm your registration,  
+    {% endautoescape %}
+    <p> The book titled, <b>{{book.book.title}}</b> was borrowed by
+    <b>{{book.user.username}}</b></p>
+    <p>he failed to return this book and the time is due as today marks the 10th day since he borrowed it</p>
+    <p>Take necessary actions to ensure the book is back to the library.</p>
+</body>
+</html>

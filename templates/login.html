@@ -106,10 +106,16 @@ body {
   -moz-osx-font-smoothing: grayscale;      
 }
 </style>
+
 <body>
+  {%for message in messages%}
+<scrip>
+  window.alert('{{message}}')
+</scrip>
+{%endfor%}
     <div class="login-page">
         <div class="form">
-          <form class="register-form" action="{%url 'register'%}">
+          <form class="register-form" method = "post"action="{%url 'register'%}">
             {{form.as_p}}
             {%csrf_token%}
             <button type="submit">Register</button>
@@ -119,7 +125,7 @@ body {
             <input type="text" name = 'username'placeholder=" Email / Username"/>
             {%csrf_token%}
 
-            <input type="password" placeholder="password"/>
+            <input type="password" name = 'password' placeholder="password"/>
             <button>login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
           </form>
